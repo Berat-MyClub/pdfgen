@@ -30,12 +30,17 @@ export default function Home() {
     var doc = new jsPDF("p", "px", "a5");
     var pageWidth = 315;
     var pageHeight = 416;
+    var lines = doc.splitTextToSize(
+      "Scanne jetzt deinen QR-Code für die schnelle und unkomplizierte Ein- und Auszahlung auf deine E-Wallet",
+      200
+    );
     doc.setFillColor("#243761");
     doc.rect(0, 0, pageWidth, 30, "F");
     doc.addImage("logo.png", "PNG", 122.5, 0, 70, 30);
-    doc.text("Scanne jetzt deinen QR-Code für die", 60, 100);
-    doc.text("schnelle und unkomplizierte Ein- und", 60, 115);
-    doc.text("Auszahlung auf deine E-Wallet", 75, 130);
+
+    doc.text(lines, 60, 100).splitTextToSize(50);
+    // doc.text("schnelle und unkomplizierte Ein- und", 60, 115);
+    // doc.text("Auszahlung auf deine E-Wallet", 75, 130);
     doc.setDrawColor("#243761");
     doc.setLineWidth(2);
     doc.rect(97.5, 170, 120, 120, "S");
