@@ -53,6 +53,7 @@ export default function Home() {
   return (
     <div className="outter-container">
       <div className="config-container">
+        <img style={{maxWidth:"8rem"}} src="logo.png"/>
         <input
           onChange={onSelectedFile}
           type="file"
