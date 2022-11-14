@@ -43,7 +43,7 @@ export default function Home() {
     doc.setFillColor("#243761");
     doc.rect(0, pageHeight, pageWidth, 30, "F");
     doc.addImage("store.png", "PNG", 70, 280, 250, 250);
-    doc.save("amk.pdf");
+    doc.save("flyer.pdf");
   };
   return (
     <div className="outter-container">
