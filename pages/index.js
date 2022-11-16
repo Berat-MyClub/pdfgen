@@ -31,14 +31,14 @@ export default function Home() {
     var pageWidth = 315;
     var pageHeight = 416;
     var lines = doc.splitTextToSize(
-      "Scanne jetzt deinen QR-Code für die schnelle und unkomplizierte Ein- und Auszahlung auf deine E-Wallet",
+      "Scanne jetzt deinen QR-Code für die schnelle und unkomplizierte Ein- und Auszahlung auf deine E-Wallet.",
       200
     );
     doc.setFillColor("#243761");
     doc.rect(0, 0, pageWidth, 30, "F");
     doc.addImage("logo.png", "PNG", 122.5, 0, 70, 30);
-
-    doc.text(lines, 60, 100).splitTextToSize(50);
+    doc.setFont('helvetica', 'bold')
+    doc.text(lines, 155, 100, 'center').splitTextToSize(50);
     // doc.text("schnelle und unkomplizierte Ein- und", 60, 115);
     // doc.text("Auszahlung auf deine E-Wallet", 75, 130);
     doc.setDrawColor("#243761");
@@ -49,6 +49,9 @@ export default function Home() {
     doc.rect(0, pageHeight, pageWidth, 30, "F");
     doc.addImage("store.png", "PNG", 70, 280, 250, 250);
     doc.save("flyer.pdf");
+  
+
+    console.log(doc.getFontList())
   };
   return (
     <div className="outter-container">
